@@ -21,8 +21,7 @@ int main()
         arr[x][y] = 1;
         arr[y][x] = 1;
     }
-
-    visit[v] = 1;
+    
     DFS(v);
     cout << "\n";
     BFS(v);
