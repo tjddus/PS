@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+#define MOD 1000000009
 long long a[4][100000];
 
 int main()
@@ -36,14 +37,14 @@ int main()
             {
                 if (a[1][i] == 0 && a[2][i] == 0 && a[3][i] == 0)
                 {
-                    a[1][i] = (a[2][i - 1] + a[3][i - 1]) % 1000000009;
-                    a[2][i] = (a[1][i - 2] + a[3][i - 2]) % 1000000009;
-                    a[3][i] = (a[1][i - 3] + a[2][i - 3]) % 1000000009;
+                    a[1][i] = (a[2][i - 1] + a[3][i - 1]) % MOD;
+                    a[2][i] = (a[1][i - 2] + a[3][i - 2]) % MOD;
+                    a[3][i] = (a[1][i - 3] + a[2][i - 3]) % MOD;
                 }
             }
         }
         result = (a[1][n] + a[2][n] + a[3][n]);
-        cout << result % 1000000009 << "\n";
+        cout << result % MOD << "\n";
     }
     return 0;
 }
