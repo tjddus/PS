@@ -18,13 +18,11 @@ int main()
 
     for (int i = 2; i <= N; i++)
     {
+        int tmp = 0;
         for (int j = 0; j <= 9; j++)
         {
-            for (int k = 0; k <= j; k++)
-            {
-                dp[i][j] += dp[i - 1][k];
-            }
-            dp[i][j] = dp[i][j] % MOD;
+            tmp += dp[i-1][j] % MOD;
+            dp[i][j] = tmp;
         }
     }
 
