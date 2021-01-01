@@ -11,18 +11,17 @@ int main()
     cout.tie(0);
 
     cin >> n;
-    int temp = n;
-    int i = 2;
-    while (temp > 1 && i <= n)
+    for (int i = 2; i * i <= n; i++)
     {
-        if (temp % i == 0)
+        while (n % i == 0)
         {
-            temp /= i;
+            n /= i;
             cout << i << "\n";
         }
-        else
-            i++;
     }
 
+    if (n > 1)
+        cout << n << "\n";
+        
     return 0;
 }
