@@ -11,17 +11,16 @@ int main()
     cout.tie(0);
 
     cin >> n;
-    for (int i = 2; i * i <= n; i++)
-    {
-        while (n % i == 0)
-        {
+
+    for(int i = 2; i <= sqrt(n); i++){
+        while(n % i == 0){
             n /= i;
             cout << i << "\n";
         }
     }
 
-    if (n > 1)
+    if(n > 1)
         cout << n << "\n";
-        
+
     return 0;
 }
