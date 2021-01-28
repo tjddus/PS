@@ -2,39 +2,39 @@
 #include <cmath>
 using namespace std;
 
-int primeNumber[1000001] = {};
+
+int flag[1000000], n = 1, fflag;
+
 int main()
 {
-    primeNumber[1] = 1;
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+
     for (int i = 2; i <= sqrt(1000000); i++)
     {
-        for (int j = i + i; j <= 1000001; j += i)
+        for (int j = i * i; j <= 1000000; j += i)
         {
-            if (primeNumber[j] == 0)
-                primeNumber[j] = 1;
+            if (flag[j] == 0){
+                flag[j] = 1;
+            }
         }
     }
 
-    while (1)
+    while (n)
     {
-        int a;
-        scanf("%d", &a);
-        if (a == 0)
-            break;
-
-        for (int i = 2; i <= a / 2; i++)
+        cin >> n;
+        for (int i = 2; i < n; i++)
         {
-            if (primeNumber[i] == 0 && primeNumber[a - i] == 0)
-            {
-                printf("%d = %d + %d\n", a, i, a - i);
+            if (flag[i] == 0 && flag[n - i] == 0){
+                cout << n << " = " << i << " + " << n - i << "\n";
+                fflag = 1;
                 break;
             }
-
-            if (i == a / 2)
-            {
-                printf("%s\n", "Goldbach's conjecture is wrong.");
-            }
         }
+    }
+    if(fflag == 0){
+        cout << "Goldbach's conjecture is wrong.";
     }
     return 0;
 }
