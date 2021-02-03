@@ -1,8 +1,8 @@
 #include <iostream>
 using namespace std;
 
-#define MAX_N 101
-#define INF 999999
+#define MAX_N 103
+#define INF 999999999
 
 int n, m;
 int dist[MAX_N][MAX_N], adjList[MAX_N][MAX_N];
@@ -25,7 +25,7 @@ int main()
     {
         int from, to, cost;
         cin >> from >> to >> cost;
-        if(dist[from][to] > cost)
+        if (dist[from][to] > cost)
             dist[from][to] = cost;
     }
 
@@ -35,9 +35,10 @@ int main()
         {
             for (int j = 1; j <= n; j++) //도착지
             {
-                if(i == j) dist[i][j] = 0;
-                if (dist[i][j] > dist[i][k] + dist[k][j])
-                    dist[i][j] = dist[i][k] + dist[k][j];
+                if (i == j)
+                    dist[i][j] = 0;
+                if (dist[i][k] != INF && dist[k][j] != INF)
+                    dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j]);
             }
         }
     }
@@ -46,10 +47,11 @@ int main()
     {
         for (int j = 1; j <= n; j++)
         {
+            if(dist[i][j] == INF)
+                dist[i][j] = 0;
             cout << dist[i][j] << " ";
         }
         cout << "\n";
     }
-
     return 0;
 }
