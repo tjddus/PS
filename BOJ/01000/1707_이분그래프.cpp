@@ -53,8 +53,6 @@ int main()
         for (int k = 1; k <= V; k++)
             v[k].clear();
 
-
-
         for (int j = 0; j < E; j++)
         {
             int a, b;
@@ -71,18 +69,13 @@ int main()
                 check = 2;
                 q.push(make_pair(t, 1));
                 BFS();
-
-                if (!flag)
-                {
-                    cout << "NO\n";
-                    break;
-                }
             }
         }
+        
         if (flag)
-        {
             cout << "YES\n";
-        }
+        else
+            cout << "NO\n";
     }
 
     return 0;
