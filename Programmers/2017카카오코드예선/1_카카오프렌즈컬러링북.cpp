@@ -53,8 +53,6 @@ vector<int> solution(int m, int n, vector<vector<int> > picture)
         }
     }
 
-    cout << number_of_area << " " << max_size_of_one_area;
-
     vector<int> answer(2);
     answer[0] = number_of_area;
     answer[1] = max_size_of_one_area;
