@@ -20,6 +20,8 @@ long long solution(string expression)
     }
     expre.push_back(expression.substr(pos));
 
+
+
     for (int i = 0; i < 6; i++)
     {
         vector<string> v(expre);
